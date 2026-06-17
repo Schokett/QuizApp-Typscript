@@ -14,22 +14,52 @@ interface questions {
 const quizQuestions: questions[] = [
   {
     id: 1,
-    question: "Was ist die Hauptstadt von Deutschland",
+    question: "Auf welcher japanischen Insel liegt die Hauptstadt Tokio?",
     answers: [
-      { id: "a", text: "München", correct: false },
-      { id: "b", text: "Berlin", correct: true },
-      { id: "c", text: "Hamburg", correct: false },
-      { id: "d", text: "Hannover", correct: false },
+      { id: "a", text: "Hokkaido", correct: false },
+      { id: "b", text: "Honshu", correct: true },
+      { id: "c", text: "Kyushu", correct: false },
+      { id: "d", text: "Shikoku", correct: false },
     ],
   },
   {
     id: 2,
-    question: "Was ist die Hauptstadt von Frankreich",
+    question: "Was beschreibt der Begriff 'Sakura' in der japanischen Kultur?",
     answers: [
-      { id: "a", text: "Marseille", correct: false },
-      { id: "b", text: "Paris", correct: true },
-      { id: "c", text: "Callais", correct: false },
-      { id: "d", text: "Rom", correct: false },
+      { id: "a", text: "Die Kunst des Papierfaltens", correct: false },
+      { id: "b", text: "Die traditionelle Teezeremonie", correct: false },
+      { id: "c", text: "Die Kirschblüte", correct: true },
+      { id: "d", text: "Ein scharfes Gewürz aus Meerrettich", correct: false },
+    ],
+  },
+  {
+    id: 3,
+    question: "Wie heißt der höchste Berg Japans, der auch ein heiliges Symbol ist?",
+    answers: [
+      { id: "a", text: "Mount Everest", correct: false },
+      { id: "b", text: "Mount Kita", correct: false },
+      { id: "c", text: "Mount Fuji", correct: true },
+      { id: "d", text: "Mount Aso", correct: false },
+    ],
+  },
+  {
+    id: 4,
+    question: "Welches Gericht besteht traditionell aus gesäuertem Reis und oft rohem Fisch?",
+    answers: [
+      { id: "a", text: "Ramen", correct: false },
+      { id: "b", text: "Sashimi", correct: false },
+      { id: "c", text: "Sushi", correct: true },
+      { id: "d", text: "Tempura", correct: false },
+    ],
+  },
+  {
+    id: 5,
+    question: "Wie nennt man die japanischen Ritter des Adelsstandes im vorindustriellen Japan?",
+    answers: [
+      { id: "a", text: "Ninja", correct: false },
+      { id: "b", text: "Samurai", correct: true },
+      { id: "c", text: "Shogun", correct: false },
+      { id: "d", text: "Ronin", correct: false },
     ],
   },
 ];
@@ -59,7 +89,7 @@ function renderQuestion(question: questions) {
 
   while (answersCopy.length > 0) {
     const randomPointer = Math.floor(Math.random() * answersCopy.length);
-    const answer = answersCopy.splice(randomPointer, 1)[0];
+    const answer = answersCopy.splice(randomPointer, 1)[0]!;
 
     const answerDiv = document.createElement("button");
     answerDiv.id = answer.id;
@@ -74,7 +104,7 @@ function renderQuestion(question: questions) {
   questionDiv.appendChild(questionTitle);
   questionDiv.appendChild(questionAnswers);
 
-  document.getElementById("display-question")!.appendChild(questionDiv);
+  document.getElementById("display-question")?.appendChild(questionDiv);
 }
 
 // TODO 12: "Next" Logik
@@ -90,12 +120,12 @@ function nextQuestion() {
     currentQuestionPointer = 0;
     currentQuestion = quizQuestions[currentQuestionPointer];
   }
-  renderQuestion(currentQuestion);
+  renderQuestion(currentQuestion!);
 }
 
 // TODO 13: Frage beantworten Logik
 function validate(answerId: string): void {
-  const correctAnswer = currentQuestion.answers.find((answer) => {
+  const correctAnswer = currentQuestion!.answers.find((answer) => {
     return answer.correct;
   });
 
@@ -114,7 +144,7 @@ function validate(answerId: string): void {
 
 // TODO 14: Lösung anzeigen
 function showSolution() {
-  const correctAnswer = currentQuestion.answers.find((answer) => {
+  const correctAnswer = currentQuestion!.answers.find((answer) => {
     return answer.correct;
   });
   if (!correctAnswer) {
@@ -124,7 +154,7 @@ function showSolution() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  renderQuestion(currentQuestion);
+  renderQuestion(currentQuestion!);
   document.getElementById("showSolution")?.addEventListener("click", showSolution);
   document.getElementById("showNextQuestion")?.addEventListener("click", nextQuestion);
 });

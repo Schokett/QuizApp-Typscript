@@ -1,22 +1,52 @@
 const quizQuestions = [
     {
         id: 1,
-        question: "Was ist die Hauptstadt von Deutschland",
+        question: "Auf welcher japanischen Insel liegt die Hauptstadt Tokio?",
         answers: [
-            { id: "a", text: "München", correct: false },
-            { id: "b", text: "Berlin", correct: true },
-            { id: "c", text: "Hamburg", correct: false },
-            { id: "d", text: "Hannover", correct: false },
+            { id: "a", text: "Hokkaido", correct: false },
+            { id: "b", text: "Honshu", correct: true },
+            { id: "c", text: "Kyushu", correct: false },
+            { id: "d", text: "Shikoku", correct: false },
         ],
     },
     {
         id: 2,
-        question: "Was ist die Hauptstadt von Frankreich",
+        question: "Was beschreibt der Begriff 'Sakura' in der japanischen Kultur?",
         answers: [
-            { id: "a", text: "Marseille", correct: false },
-            { id: "b", text: "Paris", correct: true },
-            { id: "c", text: "Callais", correct: false },
-            { id: "d", text: "Rom", correct: false },
+            { id: "a", text: "Die Kunst des Papierfaltens", correct: false },
+            { id: "b", text: "Die traditionelle Teezeremonie", correct: false },
+            { id: "c", text: "Die Kirschblüte", correct: true },
+            { id: "d", text: "Ein scharfes Gewürz aus Meerrettich", correct: false },
+        ],
+    },
+    {
+        id: 3,
+        question: "Wie heißt der höchste Berg Japans, der auch ein heiliges Symbol ist?",
+        answers: [
+            { id: "a", text: "Mount Everest", correct: false },
+            { id: "b", text: "Mount Kita", correct: false },
+            { id: "c", text: "Mount Fuji", correct: true },
+            { id: "d", text: "Mount Aso", correct: false },
+        ],
+    },
+    {
+        id: 4,
+        question: "Welches Gericht besteht traditionell aus gesäuertem Reis und oft rohem Fisch?",
+        answers: [
+            { id: "a", text: "Ramen", correct: false },
+            { id: "b", text: "Sashimi", correct: false },
+            { id: "c", text: "Sushi", correct: true },
+            { id: "d", text: "Tempura", correct: false },
+        ],
+    },
+    {
+        id: 5,
+        question: "Wie nennt man die japanischen Ritter des Adelsstandes im vorindustriellen Japan?",
+        answers: [
+            { id: "a", text: "Ninja", correct: false },
+            { id: "b", text: "Samurai", correct: true },
+            { id: "c", text: "Shogun", correct: false },
+            { id: "d", text: "Ronin", correct: false },
         ],
     },
 ];
@@ -24,6 +54,7 @@ let currentQuestion = quizQuestions[0];
 let currentQuestionPointer = -1;
 // TODO 11: Frage Rendern
 function renderQuestion(question) {
+    var _a;
     const questionDiv = document.createElement("div");
     questionDiv.id = question.id.toString();
     questionDiv.classList.add("question");
@@ -51,7 +82,7 @@ function renderQuestion(question) {
     }
     questionDiv.appendChild(questionTitle);
     questionDiv.appendChild(questionAnswers);
-    document.getElementById("display-question").appendChild(questionDiv);
+    (_a = document.getElementById("display-question")) === null || _a === void 0 ? void 0 : _a.appendChild(questionDiv);
 }
 // TODO 12: "Next" Logik
 function nextQuestion() {
