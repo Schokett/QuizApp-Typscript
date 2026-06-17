@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const quizQuestions = [
     {
         id: 1,
@@ -100,3 +101,4 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("showSolution")?.addEventListener("click", showSolution);
     document.getElementById("showNextQuestion")?.addEventListener("click", nextQuestion);
 });
+//# sourceMappingURL=index.js.map
