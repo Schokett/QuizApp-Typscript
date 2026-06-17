@@ -59,7 +59,6 @@ function renderQuestion(question: questions) {
 
   while (answersCopy.length > 0) {
     const randomPointer = Math.floor(Math.random() * answersCopy.length);
-
     const answer = answersCopy.splice(randomPointer, 1)[0];
 
     const answerDiv = document.createElement("button");
