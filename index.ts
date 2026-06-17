@@ -63,7 +63,9 @@ function renderQuestion(question: questions) {
 
     const answerDiv = document.createElement("button");
     answerDiv.id = answer.id;
-    answerDiv.setAttribute("onclick", `validate('${answer.id}')`);
+    answerDiv.addEventListener("click", () => {
+      validate(answer.id);
+    });
     answerDiv.classList.add("answer");
     answerDiv.appendChild(document.createTextNode(answer.text));
     questionAnswers.appendChild(answerDiv);
