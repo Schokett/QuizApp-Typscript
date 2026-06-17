@@ -45,6 +45,13 @@ button {
 button:hover {
   filter: brightness(90%);
 }
+.question-title {
+  padding: 0.5rem;
+  color: white;
+  background: #065fff;
+  background: linear-gradient(90deg, rgba(6, 95, 255, 1) 35%, rgba(130, 7, 199, 1) 100%);
+  border-radius: 60px;
+}
 .footer {
   display: flex;
   justify-content: center;
@@ -53,6 +60,9 @@ button:hover {
   padding-top: 1rem;
 }
 .footer > button {
-  height: 3rem;
-  width: 5rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: #065fff;
+  color: white;
+  border-radius: 40px;
 }
