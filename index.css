@@ -1,13 +1,22 @@
 body {
   font-family: Helvetica;
 }
+#display-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto;
+}
 .question {
+  width: 80%;
   border-radius: 10px;
   box-shadow: #0000001a 0 0 24px;
   padding: 1rem;
 }
 .question-title {
   font-size: 3rem;
+  text-align: center;
 }
 .question-answers {
   padding-top: 2rem;
@@ -16,6 +25,9 @@ body {
   gap: 2rem;
 }
 .answer {
+  font-size: 1.5rem;
+  color: white;
+  background-color: #065fff;
   box-shadow: #0000001a 0 0 10px;
   height: 5rem;
 }
@@ -34,7 +46,11 @@ button:hover {
   filter: brightness(90%);
 }
 .footer {
-  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  padding-top: 1rem;
 }
 .footer > button {
   height: 3rem;
